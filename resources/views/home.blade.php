@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+
 
 </head>
 <body>
 <div class="uk-container uk-container-large">
-
+    <ul class="uk-pagination uk-flex-right uk-margin-medium-top" uk-margin>
+        <li><a href="{{$posts->previousPageUrl()}}"><span uk-pagination-previous></span> Anterior</a></li>
+        <li class="uk-disabled"><span>{{$posts->currentPage()}} de {{$posts->total()}}</span></li>
+        <li><a href="{{$posts->nextPageUrl()}}">Proximo <span uk-pagination-next></span></a></li>
+    </ul>
     @foreach($posts as $post)
         <article class="uk-article">
 
@@ -32,6 +43,11 @@
 
         </article>
     @endforeach
+    <ul class="uk-pagination uk-flex-right uk-margin-medium-top" uk-margin>
+        <li><a href="{{$posts->previousPageUrl()}}"><span uk-pagination-previous></span> Anterior</a></li>
+        <li class="uk-disabled"><span>{{$posts->currentPage()}} de {{$posts->total()}}</span></li>
+        <li><a href="{{$posts->nextPageUrl()}}">Proximo <span uk-pagination-next></span></a></li>
+    </ul>
 </div>
 </body>
 </html>
